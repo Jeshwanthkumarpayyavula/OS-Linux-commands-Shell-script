@@ -659,6 +659,20 @@ chmod 777 scriptest.sh
 ./scriptest.sh 1 2 3
 
 ## OUTPUT
+“File name is ./jeon ”
+File name is  jeon
+“First arg. is ” 1
+“Second arg. is ” 2
+“Third arg. is ” 3
+“Fourth arg. is ” 4
+The $@ is  1 2 3 4
+The $\# is  $#
+The $$ is  3540
+    PID TTY          TIME CMD
+   2533 pts/0    00:00:00 bash
+   3540 pts/0    00:00:00 jeon
+   3542 pts/0    00:00:00 ps
+
 
  
 ls file1
@@ -718,6 +732,8 @@ chmod 755 strcomp.sh
  
 ./strcomp.sh 
 ## OUTPUT
+baseball is less than hockey
+
 
 
 # check file ownership
@@ -745,6 +761,8 @@ fi
  ```
 ./psswdperm.sh
 ## OUTPUT
+“Sorry, you are not the owner of the /etc/passwd file”
+
 
 # check if with file location
 cat>ifnested.sh 
@@ -791,6 +809,10 @@ fi
 
 ./ifnested.sh 
 ## OUTPUT
+“/home/sec The object exists, is it a file?”
+“No,/home/sec it is not a file!”
+“But /home/sec/.bash_history is a file!”
+
 
 
 
@@ -834,7 +856,10 @@ fi
 $ chmod 755 iftest.sh
  
 $ ./iftest.sh 
-##OUTPUT
+## OUTPUT
+“The test value 10 is greater than 5”
+“The values are different”
+
 
 # check if a file
 cat > ifnested.sh 
@@ -884,6 +909,9 @@ $ chmod 755 ifnested.sh
  
 $ ./ifnested.sh 
 ##OUTPUT
+“No,/home/sec it is not a file!”
+“But /home/sec/.bash_history is a file!”
+
 
 # looking for a possible value using elif
 cat elifcheck.sh 
@@ -912,6 +940,8 @@ $ chmod 755 elifcheck.sh
  
 $ ./elifcheck.sh 
 ## OUTPUT
+Sorry, you are not allowed here
+
 
 
 # testing compound comparisons
@@ -928,6 +958,8 @@ fi
 $ chmod 755 ifcompound.sh
 $ ./ifcompound.sh 
 ## OUTPUT
+The file exists and you can write to it
+
 
 # using the case command
 cat >casecheck.sh 
@@ -947,6 +979,9 @@ esac
 $ chmod 755 casecheck.sh 
  
 $ ./casecheck.sh 
+# Output:
+Sorry, you are not allowed here
+
  
 cat > whiletest
 ```bash
@@ -962,6 +997,17 @@ done
 $ chmod 755 whiletest.sh
  
 $ ./whiletest.sh
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+
  
  
 cat untiltest.sh 
@@ -975,13 +1021,18 @@ var1=$[ $var1 - 25 ]
 done
 ``` 
 $ chmod 755 untiltest.sh
- 
+# Output:
+100
+75
+50
+25
+
  
  
 cat forin1.sh 
 ```bash
 \#!/bin/bash
-\#basic for command
+#basic for command
 for test in Alabama Alaska Arizona Arkansas California Colorado
 do
 echo The next state is $test
@@ -989,24 +1040,36 @@ done
  ```
  
 $ chmod 755 forin1.sh
- 
+# Output:
+The next state is Alabama
+The next state is Alaska
+The next state is Arizona
+The next state is Arkansas
+The next state is California
+The next state is Colorado
+
  
 cat forin2.sh 
 ```bash
 \#!/bin/bash
-\# another example of how not to use the for command
+# another example of how not to use the for command
 for test in I don't know if this'll work
 do
 echo “word:$test”
 done
  ```
+# Output:
+“word:I”
+“word:dont know if thisll”
+“word:work”
+
  
 $ chmod 755 forin2.sh
  
 cat forin2.sh 
 ```bash
 \#!/bin/bash
-\# another example of how not to use the for command
+# another example of how not to use the for command
 for test in I don't know if this'll work
 do
 echo “word:$test”
@@ -1015,17 +1078,30 @@ done
 $ chmod 755 forin2.sh
  
 $ ./forin2.sh 
+# Output:
+“word:I”
+“word:dont know if thisll”
+“word:work”
+
  
 cat forin3.sh 
 ```bash
 \#!/bin/bash
-\# another example of how not to use the for command
+# another example of how not to use the for command
 for test in I don\'t know if "this'll" work
 do
 echo "word:$test"
 done
 ```
 $ ./forin3.sh 
+# Output:
+word:I
+word:don't
+word:know
+word:if
+word:this'll
+word:work
+
  
 cat forin1.sh 
 ```bash
@@ -1048,7 +1124,7 @@ for state in `cat $file`
 do
 echo "Visit beautiful $file“
 done
-```
+
 $ chmod 777 forinfile.sh
 $ cat cities
 Hyderabad
@@ -1074,6 +1150,12 @@ done
 $ chmod 755 forctype.sh
 $ ./forctype.sh 
 ## OUTPUT
+The value of i is 1
+The value of i is 2
+The value of i is 3
+The value of i is 4
+The value of i is 5
+
 
 cat forctype1.sh 
 ```bash
@@ -1087,6 +1169,13 @@ done
 $ chmod 755 forctype.sh
 $ ./forctype1.sh 
 ## OUTPUT
+1 - 5
+2 - 4
+3 - 3
+4 - 2
+5 - 1
+
+
 
 cat fornested1.sh 
 ```bash
