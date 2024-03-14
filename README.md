@@ -646,6 +646,7 @@ chmod 777 scriptest.sh
 ./scriptest.sh 1 2 3
 
 ## OUTPUT
+```
 “File name is ./jeon ”
 File name is  jeon
 “First arg. is ” 1
@@ -661,7 +662,7 @@ The $$ is  3540
    3542 pts/0    00:00:00 ps
 
 
- 
+ ```
 ls file1
 ## OUTPUT
 file1
