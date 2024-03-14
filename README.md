@@ -724,7 +724,7 @@ else
 echo "$val1 is less than $val2"
 fi
 ```
-##OUTPUT
+
 
 
 
@@ -908,7 +908,7 @@ fi
 $ chmod 755 ifnested.sh
  
 $ ./ifnested.sh 
-##OUTPUT
+## OUTPUT
 “No,/home/sec it is not a file!”
 “But /home/sec/.bash_history is a file!”
 
@@ -1115,6 +1115,13 @@ done
 $ chmod 755 forin1.sh
 
 ## OUTPUT
+The next state is Alabama
+The next state is Alaska
+The next state is Arizona
+The next state is Arkansas
+The next state is California
+The next state is Colorado
+
 cat forinfile.sh 
 ```bash
 #!/bin/bash
@@ -1194,7 +1201,18 @@ $ chmod 755 fornested1.sh
  
 $ ./fornested1.sh 
  ## OUTPUT
-
+ Starting loop 1:
+ Inside loop: 1
+ Inside loop: 2
+ Inside loop: 3
+Starting loop 2:
+ Inside loop: 1
+ Inside loop: 2
+ Inside loop: 3
+Starting loop 3:
+ Inside loop: 1
+ Inside loop: 2
+ Inside loop: 3
  
 cat forbreak.sh 
 ```bash
@@ -1211,6 +1229,9 @@ done
 echo "The for loop is completed“
 ```
 ## OUTPUT
+Iteration number: 1
+Iteration number: 2
++
 
 $ chmod 755 forbreak.sh
  
@@ -1236,7 +1257,27 @@ $ chmod 755 forcontinue.sh
  
 $ ./forcontinue.sh 
 ## OUTPUT
- 
+Iteration number: 1
+Iteration number: 2
+Iteration number: 4
+Iteration number: 5
+
+# breaking out of a for loop
+for var1 in 1 2 3 4 5
+do
+if [ $var1 -eq 3 ]
+then
+continue
+fi
+echo "Iteration number: $var1"
+done
+echo "The for loop is completed“
+ ## Output:
+ Iteration number: 1
+Iteration number: 2
+Iteration number: 4
+Iteration number: 5
+
 cat exread.sh 
 ```bash
 #!/bin/bash
@@ -1250,6 +1291,8 @@ $ chmod 755 exread.sh
  
 $ ./exread.sh 
 ## OUTPUT
+Enter your name: Jeshwanth
+Hello Jeshwanth, welcome to my program. 
 
 
  cat exread1.sh
@@ -1263,6 +1306,8 @@ $ chmod 755 exread1.sh
 
 ## OUTPUT
 
+Enter your name: Jeshwanth
+Hello Jeshwanth, welcome to my program. 
 
 
 $ ./exread1.sh 
@@ -1284,9 +1329,7 @@ fi
 ```
 ## OUTPUT
  ./funcex.sh 
-
- 
- ./funcex.sh 1 2
+Usage: badtest1 a b
 
  
 cat argshift.sh
@@ -1331,7 +1374,9 @@ set +x
 ```
 ## OUTPUT
  ./argshift.sh 1 2 3
- 
+ + ((  0  ))
++ set +x
+
  
 cat > nc.awk
 ```bash
@@ -1347,6 +1392,11 @@ print "Number of Lines are",NR
 print "No of Words count:",wordcount
 }
  ```
+## Output:
+Total characters: 353
+Number of Lines: 16
+Number of Words: 60
+
 cat>data.dat
 ```bash
 bcdfghj
@@ -1362,6 +1412,16 @@ ubcdfghj
 ```
 awk -f nc.awk data.dat
 ## OUTPUT 
+bcdfghj
+abcdfghj
+bcdfghj
+ebcdfghj
+bcdfghj
+ibcdfghj
+bcdfghj
+obcdfghj
+bcdfghj
+ubcdfghj
  
 cat > palindrome.sh
 ```bash
@@ -1389,6 +1449,10 @@ else
 fi
 ```
 ## OUTPUT 
+Enter the number
+1234321
+Number is palindrome
+
 
 
 # RESULT:
